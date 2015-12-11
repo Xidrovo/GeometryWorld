@@ -6,6 +6,7 @@ public class Movement : MonoBehaviour {
 
     public float Speed = 5f;
     public Transform Punto;
+    Vector3 Vect;
 	// Use this for initialization
 	void Start () {
 	
@@ -13,8 +14,7 @@ public class Movement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
-        this.transform.Translate(new Vector3(Punto.transform.position.x, this.transform.position.y, 0) 
-            * Speed * Time.deltaTime);
-	}
+        Vect = new Vector3(Punto.transform.position.x, this.transform.position.y, 0);
+        transform.position = Vector3.MoveTowards(transform.position, Vect, 0.03f);
+    }
 }
